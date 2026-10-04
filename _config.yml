@@ -1,0 +1,7 @@
+title: Niharu — Privacy policies
+description: Políticas de privacidad de las apps de Niharu
+theme: jekyll-theme-minimal
+plugins:
+  - jekyll-optional-front-matter
+  - jekyll-relative-links
+  - jekyll-titles-from-headers
