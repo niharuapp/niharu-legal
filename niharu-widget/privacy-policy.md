@@ -1,12 +1,12 @@
 # Privacy Policy — NiHaru Widget for Android
 
-*An app by Niharu* · Last updated: October 3, 2026
+*An app by Niharu* · Last updated: November 7, 2026
 
 🇦🇷 [Leer esta política en español](politica-de-privacidad.md)
 
 ## 1. Scope of this policy
 
-This policy applies **only to the NiHaru widget for Android** (package `app.niharu.widget`), a companion app with no launcher icon that shows a Japanese word or kanji on your home screen.
+This policy applies **only to the NiHaru widget for Android** (package `com.niharuapp.widget`), a companion app that shows a Japanese word or kanji on your home screen.
 
 The widget **does not use your NiHaru account** or any login. If you use the website [niharuapp.com](https://niharuapp.com), that experience is governed by its own privacy policy on the site.
 
@@ -25,6 +25,7 @@ The widget **does not use your NiHaru account** or any login. If you use the web
 | **Installation key (`widgetKey`)**: a random identifier (UUID) issued by the server the first time you use the widget | Identify your installation anonymously on each content request | Server and device |
 | **Last activity**: the date and time of your most recent content request (a single value that is overwritten, with no history) | Detect inactive or abusive installations | Server |
 | **Filters you choose** (JLPT level, word type, frequency, category) | Return matching content. They are sent with each request but **not stored** on the server | Your device only |
+| **Identifier of the content currently shown** | Prevent the next request from repeating the same word or kanji. It is sent with the request but **not stored** on the server | Your device only |
 | **Visual settings and last content shown** (mode, visible fields, color, opacity, refresh interval) | Make the widget look and behave as you configured it | Your device only |
 
 In addition, while processing each request the server temporarily sees your IP address, like any web server. It uses it for in-memory usage limits and does not record it in its application logs.
