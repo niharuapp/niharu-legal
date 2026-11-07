@@ -1,12 +1,12 @@
 # Política de privacidad — Widget de NiHaru para Android
 
-*Una app de Niharu* · Última actualización: 3 de octubre de 2026
+*Una app de Niharu* · Última actualización: 7 de noviembre de 2026
 
 🇬🇧 [Read this policy in English](privacy-policy.md)
 
 ## 1. Qué cubre esta política
 
-Esta política se aplica **solo al widget de NiHaru para Android** (paquete `app.niharu.widget`), una app companion sin ícono en el launcher que muestra una palabra o un kanji de japonés en tu pantalla de inicio.
+Esta política se aplica **solo al widget de NiHaru para Android** (paquete `com.niharuapp.widget`), una app companion que muestra una palabra o un kanji de japonés en tu pantalla de inicio.
 
 El widget **no usa tu cuenta de NiHaru** ni ningún inicio de sesión. Si usás el sitio web [niharuapp.com](https://niharuapp.com), esa experiencia se rige por su propia política de privacidad en el sitio.
 
@@ -25,6 +25,7 @@ El widget **no usa tu cuenta de NiHaru** ni ningún inicio de sesión. Si usás 
 | **Clave de instalación (`widgetKey`)**: un identificador aleatorio (UUID) que emite el servidor la primera vez que usás el widget | Identificar tu instalación de forma anónima en cada pedido de contenido | Servidor y dispositivo |
 | **Última actividad**: la fecha y hora de tu último pedido de contenido (un único valor que se sobrescribe, sin historial) | Detectar instalaciones inactivas o abusivas | Servidor |
 | **Filtros que elegís** (nivel JLPT, tipo de palabra, frecuencia, categoría) | Devolverte contenido acorde. Viajan en cada pedido pero **no se guardan** en el servidor | Solo en tu dispositivo |
+| **Identificador del contenido que se está mostrando** | Evitar que el siguiente pedido repita la misma palabra o kanji. Viaja en el pedido pero **no se guarda** en el servidor | Solo en tu dispositivo |
 | **Configuración visual y último contenido mostrado** (modo, campos visibles, color, opacidad, intervalo de refresco) | Que el widget se vea y funcione como lo configuraste | Solo en tu dispositivo |
 
 Además, al procesar cada pedido, el servidor ve temporalmente tu dirección IP, como cualquier servidor web. La usa para aplicar límites de uso en memoria y no la registra en sus logs de la aplicación.
