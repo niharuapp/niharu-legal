@@ -24,6 +24,7 @@ El widget **no usa tu cuenta de NiHaru** ni ningún inicio de sesión. Si usás 
 | **Hash de tu dirección IP** (HMAC-SHA256 con una clave secreta del servidor). La IP en claro no se guarda | Aplicar límites de uso y bloqueos por abuso | Servidor |
 | **Clave de instalación (`widgetKey`)**: un identificador aleatorio (UUID) que emite el servidor la primera vez que usás el widget | Identificar tu instalación de forma anónima en cada pedido de contenido | Servidor y dispositivo |
 | **Última actividad**: la fecha y hora de tu último pedido de contenido (un único valor que se sobrescribe, sin historial) | Detectar instalaciones inactivas o abusivas | Servidor |
+| **Fecha de alta y estado de la instalación** (activa o revocada) | Saber desde cuándo existe la instalación y poder revocarla si se usa para abusar del servicio | Servidor |
 | **Filtros que elegís** (nivel JLPT, tipo de palabra, frecuencia, categoría) | Devolverte contenido acorde. Viajan en cada pedido pero **no se guardan** en el servidor | Solo en tu dispositivo |
 | **Identificador del contenido que se está mostrando** | Evitar que el siguiente pedido repita la misma palabra o kanji. Viaja en el pedido pero **no se guarda** en el servidor | Solo en tu dispositivo |
 | **Configuración visual y último contenido mostrado** (modo, campos visibles, color, opacidad, intervalo de refresco) | Que el widget se vea y funcione como lo configuraste | Solo en tu dispositivo |
@@ -46,6 +47,10 @@ El widget solo declara los permisos de Android `INTERNET` y `ACCESS_NETWORK_STAT
 ## 6. Dónde se almacenan y quién los procesa
 
 Los datos del servidor se guardan en una base de datos PostgreSQL alojada en **Railway**. Las copias de seguridad de la base se almacenan cifradas en **Cloudflare R2** y se conservan 14 días. Estos proveedores actúan como encargados de infraestructura y pueden procesar los datos fuera de Argentina.
+
+Como cualquier proveedor de hosting, Railway puede registrar la dirección IP de origen de cada pedido en sus propios registros de red, que conserva por un tiempo limitado según sus políticas. Esos registros son del proveedor, no de la aplicación.
+
+Si ocurre un error en el servidor mientras procesa un pedido del widget, se envía un reporte técnico a **Sentry**, un servicio de monitoreo de errores, para poder corregirlo. Ese reporte no incluye tu dirección IP, la clave de instalación, el hash del dispositivo ni los filtros que elegiste.
 
 El widget se comunica con el servidor únicamente por HTTPS (`api.niharuapp.com`).
 
