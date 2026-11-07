@@ -24,6 +24,7 @@ The widget **does not use your NiHaru account** or any login. If you use the web
 | **Hash of your IP address** (HMAC-SHA256 with a server-side secret key). The raw IP is not stored | Apply usage limits and abuse blocks | Server |
 | **Installation key (`widgetKey`)**: a random identifier (UUID) issued by the server the first time you use the widget | Identify your installation anonymously on each content request | Server and device |
 | **Last activity**: the date and time of your most recent content request (a single value that is overwritten, with no history) | Detect inactive or abusive installations | Server |
+| **Installation creation date and status** (active or revoked) | Know when the installation was created and revoke it if it is used to abuse the service | Server |
 | **Filters you choose** (JLPT level, word type, frequency, category) | Return matching content. They are sent with each request but **not stored** on the server | Your device only |
 | **Identifier of the content currently shown** | Prevent the next request from repeating the same word or kanji. It is sent with the request but **not stored** on the server | Your device only |
 | **Visual settings and last content shown** (mode, visible fields, color, opacity, refresh interval) | Make the widget look and behave as you configured it | Your device only |
@@ -46,6 +47,10 @@ Only to (a) deliver the widget's content and (b) protect the service against abu
 ## 6. Where data is stored and who processes it
 
 Server data is stored in a PostgreSQL database hosted on **Railway**. Database backups are stored encrypted on **Cloudflare R2** and retained for 14 days. These providers act as infrastructure processors and may process data outside Argentina.
+
+Like any hosting provider, Railway may record the source IP address of each request in its own network logs, which it keeps for a limited time under its own policies. Those logs belong to the provider, not to the application.
+
+If a server error occurs while processing a widget request, a technical report is sent to **Sentry**, an error monitoring service, so it can be fixed. That report does not include your IP address, installation key, device hash or the filters you chose.
 
 The widget communicates with the server over HTTPS only (`api.niharuapp.com`).
 
